@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Splitty - Global Address Splitter</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Splitty</div>
+  <div style="display:flex; gap:10px;">
+    <button class="nav-btn" onclick="scrollToTool()">Try Now</button>
+    <button class="nav-btn" onclick="openApiModal()">API Key</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Split Addresses Instantly</h1>
+    <p>Transform messy global addresses into clean, structured data in seconds.</p>
+    <button class="primary-btn" onclick="scrollToTool()">Start Splitting</button>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>⚡ Fast Processing</h3>
+    <p>Batch process thousands of addresses efficiently.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🌍 Global Support</h3>
+    <p>Supports US, India, UK, Canada, Australia & more.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>📂 Excel Ready</h3>
+    <p>Upload Excel and export clean CSV instantly.</p>
+  </div>
+</section>
+
+<section id="tool" class="tool">
+  <h2>Try Splitty</h2>
+
+  <div class="tool-card">
+
+    <div class="input-group">
+      <label>Upload File</label>
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv">
+    </div>
+
+    <div class="input-group">
+      <label>Paste Addresses</label>
+      <textarea id="input" placeholder="One address per line..."></textarea>
+    </div>
+
+    <div class="buttons">
+      <button class="primary-btn" onclick="processAddresses()">Split</button>
+      <button class="secondary-btn" onclick="copyToClipboard()">Copy</button>
+      <button class="secondary-btn" onclick="downloadCSV()">Download CSV</button>
+    </div>
+
+  </div>
+
+  <div class="table-wrapper">
+    <table id="outputTable">
+      <thead>
+        <tr>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zipcode</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  Designed by Nagaraj Pattar
+</footer>
+
+<!-- API MODAL -->
+<div id="apiModal" class="modal">
+  <div class="modal-content">
+    <h3>Enter API Key</h3>
+    <input type="password" id="apiKeyInputModal" placeholder="Enter your Geoapify API key">
+    <div class="modal-buttons">
+      <button class="primary-btn" onclick="saveApiKey()">OK</button>
+      <button class="secondary-btn" onclick="closeApiModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function scrollToTool() {
+  document.getElementById("tool").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
